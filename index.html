@@ -25,19 +25,15 @@
             display: flex;
             align-items: center;
         }
-        .logo-placeholder {
-            width: 50px;
-            height: 50px;
+        /* LOGO ADDED HERE */
+        .cbse-logo {
+            width: 70px; /* Adjusted size */
+            height: 70px;
             background: white;
             border-radius: 50%;
             margin-right: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #00A9A9;
-            font-weight: bold;
-            font-size: 10px;
-            text-align: center;
+            object-fit: contain;
+            padding: 2px;
         }
         .header-text h1 { margin: 0; font-size: 18px; }
         .header-text p { margin: 0; font-size: 20px; font-weight: bold; }
@@ -154,14 +150,15 @@
 
     <div class="top-header">
         <div class="logo-section">
-            <div class="logo-placeholder">CBSE<br>LOGO</div>
+            <!-- LOGO INTEGRATED HERE -->
+            <img src="https://logowik.com/content/uploads/images/cbse-central-board-of-secondary-education7240.jpg" class="cbse-logo" alt="CBSE">
             <div class="header-text">
                 <h1>केन्द्रीय माध्यमिक शिक्षा बोर्ड</h1>
                 <p>Central Board of Secondary Education</p>
             </div>
         </div>
         <div class="header-right">
-            <div style="font-size: 24px;">https://cbseresults.nic.in</div>
+            <div style="font-size: 14px; opacity: 0.9;">https://cbseresults.nic.in</div>
             <span>Examination Results 2025</span>
         </div>
     </div>
@@ -211,7 +208,6 @@
         </div>
     </div>
 
-    <!-- Hidden Prank Video -->
     <div id="prank-overlay">
         <video id="pVideo">
             <source src="video.mp4" type="video/mp4">
@@ -225,19 +221,15 @@
 
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Trigger Fullscreen
             overlay.style.display = 'block';
             if (overlay.requestFullscreen) {
                 overlay.requestFullscreen();
             } else if (overlay.webkitRequestFullscreen) {
                 overlay.webkitRequestFullscreen();
             }
-
             video.play();
         });
 
-        // Close when video ends
         video.onended = function() {
             if (document.exitFullscreen) document.exitFullscreen();
             overlay.style.display = 'none';
