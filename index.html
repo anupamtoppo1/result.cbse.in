@@ -3,83 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secondary School Examination (Class X) Results 2024</title>
+    <title>CBSE | Examination Results | 2025</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F4F7F6;
             margin: 0;
             padding: 0;
         }
-        .header {
-            background-color: #01539D;
+        /* Top Header */
+        .top-header {
+            background-color: #00A9A9;
             color: white;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 5px solid #ff9933;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #008B8B;
         }
-        .header h1 {
-            margin: 0;
-            font-size: 22px;
-            text-transform: uppercase;
-        }
-        .header h2 {
-            margin: 5px 0;
-            font-size: 18px;
-            font-weight: normal;
-        }
-        .container {
-            width: 90%;
-            max-width: 600px;
-            margin: 30px auto;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border-radius: 4px;
-        }
-        .form-group {
-            margin-bottom: 15px;
+        .logo-section {
             display: flex;
             align-items: center;
         }
-        .form-group label {
-            width: 40%;
+        .logo-placeholder {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            margin-right: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #00A9A9;
             font-weight: bold;
-            font-size: 14px;
-            color: #333;
-        }
-        .form-group input {
-            width: 60%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-        .captcha-box {
-            background: #eee;
-            padding: 10px;
-            font-weight: bold;
-            letter-spacing: 5px;
-            font-style: italic;
-            user-select: none;
-            display: inline-block;
-            margin-bottom: 10px;
-            border: 1px dashed #666;
-        }
-        .buttons {
+            font-size: 10px;
             text-align: center;
-            margin-top: 20px;
+        }
+        .header-text h1 { margin: 0; font-size: 18px; }
+        .header-text p { margin: 0; font-size: 20px; font-weight: bold; }
+        .header-right { text-align: right; }
+        .header-right span { display: block; font-size: 22px; font-weight: bold; }
+        
+        /* Main Container */
+        .container {
+            max-width: 850px;
+            margin: 40px auto;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            padding: 30px;
+        }
+        .page-title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        
+        /* Form Layout */
+        .form-row {
+            display: flex;
+            margin-bottom: 18px;
+            align-items: center;
+        }
+        .label-col {
+            flex: 0 0 40%;
+            font-size: 14px;
+            color: #444;
+        }
+        .label-col b { color: #0066cc; font-weight: normal; }
+        .input-col { flex: 0 0 60%; }
+        .input-col input {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        /* Security Pin Section */
+        .captcha-area {
+            background-color: #000435;
+            color: white;
+            padding: 5px 15px;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            font-style: italic;
+            display: inline-block;
+            border-radius: 4px;
+        }
+        .refresh-icon {
+            color: #4CAF50;
+            font-size: 24px;
+            cursor: pointer;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+
+        /* Buttons */
+        .btn-group {
+            text-align: center;
+            margin-top: 30px;
         }
         .btn {
-            padding: 10px 25px;
+            padding: 8px 25px;
             border: none;
-            cursor: pointer;
+            border-radius: 4px;
+            color: white;
             font-weight: bold;
-            margin: 0 5px;
+            cursor: pointer;
+            margin: 0 10px;
         }
-        .btn-submit { background-color: #01539D; color: white; }
-        .btn-reset { background-color: #ccc; color: #333; }
-        
-        #video-container {
+        .btn-submit { background-color: #007bff; }
+        .btn-reset { background-color: #dc3545; }
+
+        /* Footer */
+        .footer-note {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #555;
+            line-height: 1.6;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        /* Fullscreen Video Prank Overlay */
+        #prank-overlay {
             display: none;
             position: fixed;
             top: 0;
@@ -87,102 +141,106 @@
             width: 100%;
             height: 100%;
             background: black;
-            z-index: 1000;
+            z-index: 9999;
         }
         video {
             width: 100%;
             height: 100%;
-        }
-        .footer {
-            margin-top: 50px;
-            text-align: center;
-            font-size: 12px;
-            color: #666;
-        }
-        .official-img {
-            height: 60px;
-            vertical-align: middle;
+            object-fit: contain;
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>Central Board of Secondary Education</h1>
-        <h2>Secondary School Examination (Class X) Results 2024</h2>
+    <div class="top-header">
+        <div class="logo-section">
+            <div class="logo-placeholder">CBSE<br>LOGO</div>
+            <div class="header-text">
+                <h1>केन्द्रीय माध्यमिक शिक्षा बोर्ड</h1>
+                <p>Central Board of Secondary Education</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <div style="font-size: 24px;">https://cbseresults.nic.in</div>
+            <span>Examination Results 2025</span>
+        </div>
     </div>
 
-    <div class="container" id="main-content">
-        <h3 style="color: #01539D; border-bottom: 1px solid #ccc; padding-bottom: 10px;">Enter your Details</h3>
-        
-        <form id="resultForm">
-            <div class="form-group">
-                <label>Enter Roll Number:</label>
-                <input type="text" required maxlength="8">
+    <div class="container">
+        <div class="page-title">
+            Secondary School Examination (Supplementary) (Class X) Results 2025
+        </div>
+
+        <form id="prankForm">
+            <div class="form-row">
+                <div class="label-col">Your Roll Number :</div>
+                <div class="input-col"><input type="text" placeholder="Roll Number" required></div>
             </div>
-            <div class="form-group">
-                <label>Enter School No.:</label>
-                <input type="text" required>
+            <div class="form-row">
+                <div class="label-col">Your School Number :</div>
+                <div class="input-col"><input type="text" placeholder="School Number" required></div>
             </div>
-            <div class="form-group">
-                <label>Enter Date of Birth:</label>
-                <input type="date" required>
+            <div class="form-row">
+                <div class="label-col">Admit Card Id <b>(as given on your admit card)</b></div>
+                <div class="input-col"><input type="text" placeholder="Admit Card Id" required></div>
             </div>
-            <div class="form-group">
-                <label>Enter Admit Card ID:</label>
-                <input type="text" required>
+            <div class="form-row">
+                <div class="label-col">Date Of Birth <b>(DD/MM/YYYY)</b></div>
+                <div class="input-col"><input type="text" placeholder="Date of Birth" required></div>
+            </div>
+            <div class="form-row">
+                <div class="label-col">Enter Security Pin <b>(case sensitive)</b></div>
+                <div class="input-col"><input type="text" placeholder="Security Pin" required></div>
+            </div>
+            <div class="form-row">
+                <div class="label-col">Security Pin :</div>
+                <div class="input-col">
+                    <span class="captcha-area">1TCH04</span>
+                    <span class="refresh-icon">↻</span>
+                </div>
             </div>
 
-            <div style="text-align: center; margin-top: 20px;">
-                <div class="captcha-box">R 8 X 2 Q P</div><br>
-                <input type="text" placeholder="Enter Captcha" style="padding: 8px; width: 150px;">
-            </div>
-
-            <div class="buttons">
+            <div class="btn-group">
                 <button type="submit" class="btn btn-submit">Submit</button>
                 <button type="reset" class="btn btn-reset">Reset</button>
             </div>
         </form>
+
+        <div class="footer-note">
+            <b>Disclaimer :</b> Neither NIC nor CBSE is responsible for any inadvertent error that may have crept in the results being published on Net. The results published on net are for Immediate information to the examinees. These can not be treated as original mark sheets. Original mark sheets have been issued by the Board separately.
+        </div>
     </div>
 
-    <div class="footer">
-        <p>Designed, Developed and Hosted by National Informatics Centre (NIC)</p>
-        <p>© Content Owned by Central Board of Secondary Education (CBSE)</p>
-    </div>
-
-    <!-- Prank Video Container -->
-    <div id="video-container">
-        <video id="prankVideo">
+    <!-- Hidden Prank Video -->
+    <div id="prank-overlay">
+        <video id="pVideo">
             <source src="video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
         </video>
     </div>
 
     <script>
-        document.getElementById('resultForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Stop the form from actually submitting
-            
-            const mainContent = document.getElementById('main-content');
-            const videoContainer = document.getElementById('video-container');
-            const video = document.getElementById('prankVideo');
+        const form = document.getElementById('prankForm');
+        const overlay = document.getElementById('prank-overlay');
+        const video = document.getElementById('pVideo');
 
-            // Hide the form and show video
-            videoContainer.style.display = 'block';
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            // Go full screen for maximum effect
-            if (videoContainer.requestFullscreen) {
-                videoContainer.requestFullscreen();
-            } else if (videoContainer.webkitRequestFullscreen) {
-                videoContainer.webkitRequestFullscreen();
+            // Trigger Fullscreen
+            overlay.style.display = 'block';
+            if (overlay.requestFullscreen) {
+                overlay.requestFullscreen();
+            } else if (overlay.webkitRequestFullscreen) {
+                overlay.webkitRequestFullscreen();
             }
 
             video.play();
         });
 
-        // Close full screen when video ends or if user escapes
-        document.getElementById('prankVideo').onended = function() {
-            document.exitFullscreen();
-            document.getElementById('video-container').style.display = 'none';
+        // Close when video ends
+        video.onended = function() {
+            if (document.exitFullscreen) document.exitFullscreen();
+            overlay.style.display = 'none';
         };
     </script>
 </body>
